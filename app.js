@@ -16,6 +16,8 @@ const app = express();
 //importarroutes
 const appRoutes = require('./routes/app');
 const usuarioRoutes = require('./routes/user');
+const hospitalesRoutes = require('./routes/hospitales');
+const deptohospitalesRoutes = require('./routes/deptohospitales');
 
 //inicializar cors
 app.use(cors());
@@ -47,6 +49,8 @@ mongoose.connect(
 );
 
 //rutas
+app.use('/deptohospitales', deptohospitalesRoutes);
+app.use('/hospitales', hospitalesRoutes);
 app.use('/user', usuarioRoutes);
 app.use('/', appRoutes);
 
